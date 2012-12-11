@@ -75,8 +75,8 @@ our class Graph is export {
     method dot(--> Str) {
         my Str $r = qq:to/EOF/
         graph $.name \{
-            { ($_.dot for %.node.values).join("\n    ") }
-            { ($_.dot for @.edge).join("\n    ") }
+            { ($_.dot for %.node.values).join("\n        ") }
+            { ($_.dot for @.edge).join("\n        ") }
         }
         EOF
     }
