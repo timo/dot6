@@ -9,4 +9,4 @@ lives_ok { Graphviz::Grammar::Dot.parse(q[
         B;
         C -- A;
     }
-]) }
+]) }, "parse a simple example";
