@@ -23,6 +23,10 @@ our class Edge is export {
     method dot(--> Str) {
         "$.from.dot() -> $.to.dot()"
     }
+
+    method new($from, $to) {
+        self.bless(*, :$from, :$to);
+    }
 }
 
 our class Subgraph is export {
