@@ -73,9 +73,13 @@ our class Graph is export {
     }
 
     method dot(--> Str) {
-        my Str $r = "graph $.name \{\n";
-        $r ~= ("    " ~ $_.dot for %.node.values).join("\n");
-        $r ~= ("    " ~ $_.dot for @.edge).join("\n");
-        $r ~= "\n}"
+        my Str $r = qq:to/EOF/
+        graph $.name \{
+            { ($_.dot for %.node.values).join("\n    ") }
+            { ($_.dot for @.edge).join("\n    ") }
+        }
+        EOF
     }
 }
+
+# vi: ft=perl6
